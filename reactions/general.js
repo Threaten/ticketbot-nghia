@@ -33,14 +33,13 @@ function verify_closed(res) {
   return response;
 }
 
-async function general_ticket(message, user) {
+function general_ticket(message, user) {
   mongo.validateTicket_Author(user.id, async (res) => {
     try {
       status = verify_closed(res);
       if (status.status === true) {
         return user.send(SpamTicket(user.id, status.channel));
       } else {
-          let category = await message.guild.
         await message.guild.channels
           .create(`support-${user.username}`, {
             type: "text",
