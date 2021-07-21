@@ -37,6 +37,9 @@ function ticketMessage(id) {
       "như link fb, giấy khen, ....",
       false
     )
+    .setFooter(
+      "© Threaten https://cdn.discordapp.com/avatars/259733877826912257/62ba0cc0c81fb92dd8f6356fa757f1bf.png?size=256"
+    )
     .setTimestamp();
 }
 
@@ -44,6 +47,9 @@ function SpamTicket(auID, chID) {
   return new Discord.MessageEmbed()
     .setColor("#28df99")
     .setDescription(`<@${auID}> You've Already a Ticket opened at <#${chID}>`)
+    .setFooter(
+      "© Threaten https://cdn.discordapp.com/avatars/259733877826912257/62ba0cc0c81fb92dd8f6356fa757f1bf.png?size=256"
+    )
     .setTimestamp();
 }
 

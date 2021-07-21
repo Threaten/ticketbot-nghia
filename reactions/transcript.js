@@ -16,25 +16,37 @@ function ticketMessage(channel, user) {
     .setTitle(`Transcript of ${user.name}#${user.tag}`)
     .addField("Ticket Owner", `<@${user.id}>`, true)
     .addField("Ticket Name", `${channel.name}`, true)
+    .setFooter(
+      "© Threaten https://cdn.discordapp.com/avatars/259733877826912257/62ba0cc0c81fb92dd8f6356fa757f1bf.png?size=256"
+    )
     .setTimestamp();
 }
 
 function transcriptMessage() {
   return new Discord.MessageEmbed()
     .setColor("#bbf1c8")
-    .setDescription("Transcript Saved");
+    .setDescription("Transcript Saved")
+    .setFooter(
+      "© Threaten https://cdn.discordapp.com/avatars/259733877826912257/62ba0cc0c81fb92dd8f6356fa757f1bf.png?size=256"
+    );
 }
 
 function transcripting() {
   return new Discord.MessageEmbed()
     .setColor("#fbd46d")
-    .setDescription("Transcript Saving");
+    .setDescription("Transcript Saving")
+    .setFooter(
+      "© Threaten https://cdn.discordapp.com/avatars/259733877826912257/62ba0cc0c81fb92dd8f6356fa757f1bf.png?size=256"
+    );
 }
 
 function Wrong(auID) {
   return new Discord.MessageEmbed()
     .setColor("#c70039")
     .setDescription(`<@${auID}> Something Went wrong. Please Try again`)
+    .setFooter(
+      "© Threaten https://cdn.discordapp.com/avatars/259733877826912257/62ba0cc0c81fb92dd8f6356fa757f1bf.png?size=256"
+    )
     .setTimestamp();
 }
 
@@ -100,7 +112,9 @@ function create_transcript(message, user) {
                     )
                     .addField("Ticket Owner", `<@${res.authorID}>`, true)
                     .addField("Ticket Name", `${message.channel.name}`, true)
-
+                    .setFooter(
+                      "© Threaten https://cdn.discordapp.com/avatars/259733877826912257/62ba0cc0c81fb92dd8f6356fa757f1bf.png?size=256"
+                    )
                     .setTimestamp();
                   webhookClient
                     .send({

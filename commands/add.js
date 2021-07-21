@@ -1,69 +1,80 @@
-const Discord = require('discord.js')
-const mongo = require('../src/connect');
+const Discord = require("discord.js");
+const mongo = require("../src/connect");
 
-function noArgs(id){
-    return new Discord.MessageEmbed()
-        .setColor('#ff4b5c')
-        .setDescription(`<@${id}> You didn't specified any argument`)
-        .setTimestamp()
+function noArgs(id) {
+  return new Discord.MessageEmbed()
+    .setColor("#ff4b5c")
+    .setDescription(`<@${id}> You didn't specified any argument`)
+    .setFooter(
+      "© Threaten https://cdn.discordapp.com/avatars/259733877826912257/62ba0cc0c81fb92dd8f6356fa757f1bf.png?size=256"
+    )
+    .setTimestamp();
 }
 
-function added(id){
-    return new Discord.MessageEmbed()
-        .setColor('#bbf1c8')
-        .setDescription(`<@${id}> Added to Ticket`)
-        .setTimestamp()
+function added(id) {
+  return new Discord.MessageEmbed()
+    .setColor("#bbf1c8")
+    .setDescription(`<@${id}> Added to Ticket`)
+    .setFooter(
+      "© Threaten https://cdn.discordapp.com/avatars/259733877826912257/62ba0cc0c81fb92dd8f6356fa757f1bf.png?size=256"
+    )
+    .setTimestamp();
 }
 
-function author(client,args){
-    return new Promise((resolve,reject)=>{
-        client.users.fetch(args[0]).then(au=>{
-            resolve(au)
-        }).catch(err=>{
-            reject(err)
-        })
-    })
+function author(client, args) {
+  return new Promise((resolve, reject) => {
+    client.users
+      .fetch(args[0])
+      .then((au) => {
+        resolve(au);
+      })
+      .catch((err) => {
+        reject(err);
+      });
+  });
 }
 
 module.exports = {
-    name: 'add',
-    description: 'Adds new user to ticket',
-    cooldown: 3,
-    guildOnly: true,
-    args: true,
-    usage: `<@mention> || <MemberID> `,
-    async execute(message, args, client) {
-        message.delete()
-        if(message.mentions.users.size){
-            const ID = message.mentions.users.first()
-            var auID = ID.id
-            mongo.validateTicket_Channel(message.channel.id,(res)=>{
-                if(res){
-                    message.channel.updateOverwrite(auID, {VIEW_CHANNEL: true}, 'Added to Ticket').then(m=>{
-                        mongo.updateTicketAdd(message.channel.id, auID, (r)=>{
-                            if(r){
-                                return message.channel.send(added(auID))
-                            }
-                        })
-                    })
+  name: "add",
+  description: "Adds new user to ticket",
+  cooldown: 3,
+  guildOnly: true,
+  args: true,
+  usage: `<@mention> || <MemberID> `,
+  async execute(message, args, client) {
+    message.delete();
+    if (message.mentions.users.size) {
+      const ID = message.mentions.users.first();
+      var auID = ID.id;
+      mongo.validateTicket_Channel(message.channel.id, (res) => {
+        if (res) {
+          message.channel
+            .updateOverwrite(auID, { VIEW_CHANNEL: true }, "Added to Ticket")
+            .then((m) => {
+              mongo.updateTicketAdd(message.channel.id, auID, (r) => {
+                if (r) {
+                  return message.channel.send(added(auID));
                 }
-            })
+              });
+            });
         }
-        else{
-            author(client,args).then(auID=>{
-                mongo.validateTicket_Channel(message.channel.id,(res)=>{
-                    if(res){
-                        message.channel.updateOverwrite(auID, {VIEW_CHANNEL: true}, 'Added to Ticket').then(m=>{
-                            mongo.updateTicketAdd(message.channel.id, auID.id, (r)=>{
-                                if(r){
-                                    return message.channel.send(added(auID.id))
-                                }
-                            })
-                        })
-                    }
-                })
-            })
-        }
-        
+      });
+    } else {
+      author(client, args).then((auID) => {
+        mongo.validateTicket_Channel(message.channel.id, (res) => {
+          if (res) {
+            message.channel
+              .updateOverwrite(auID, { VIEW_CHANNEL: true }, "Added to Ticket")
+              .then((m) => {
+                mongo.updateTicketAdd(message.channel.id, auID.id, (r) => {
+                  if (r) {
+                    return message.channel.send(added(auID.id));
+                  }
+                });
+              });
+          }
+        });
+      });
     }
-}
+  },
+};

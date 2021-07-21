@@ -8,6 +8,9 @@ function ticketMessage(id) {
     .setDescription(
       `Chào <@${id}> ,\nbạn vui lòng đặt câu hỏi tại đây. Sẽ có người hỗ trợ bạn trong thời gian sớm nhất`
     )
+    .setFooter(
+      "© Threaten https://cdn.discordapp.com/avatars/259733877826912257/62ba0cc0c81fb92dd8f6356fa757f1bf.png?size=256"
+    )
     .setTimestamp();
 }
 
@@ -15,6 +18,9 @@ function SpamTicket(auID, chID) {
   return new Discord.MessageEmbed()
     .setColor("#28df99")
     .setDescription(`<@${auID}> Bạn đã có ticket <#${chID}>`)
+    .setFooter(
+      "© Threaten https://cdn.discordapp.com/avatars/259733877826912257/62ba0cc0c81fb92dd8f6356fa757f1bf.png?size=256"
+    )
     .setTimestamp();
 }
 
