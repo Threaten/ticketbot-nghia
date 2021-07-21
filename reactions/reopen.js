@@ -6,9 +6,8 @@ function ticketMessage(id) {
     .setColor("#bbf1c8")
     .setTitle("**Ticket Reopened**")
     .setDescription(`This ticket Reopened by <@${id}>`)
-    .setFooter(
-      "© Threaten https://cdn.discordapp.com/avatars/259733877826912257/62ba0cc0c81fb92dd8f6356fa757f1bf.png?size=256"
-    )
+    .setFooter("© Threaten")
+
     .setTimestamp();
 }
 
@@ -16,9 +15,8 @@ function Wrong(auID) {
   return new Discord.MessageEmbed()
     .setColor("#28df99")
     .setDescription(`<@${auID}> Something Went wrong. Please Try again`)
-    .setFooter(
-      "© Threaten https://cdn.discordapp.com/avatars/259733877826912257/62ba0cc0c81fb92dd8f6356fa757f1bf.png?size=256"
-    )
+    .setFooter("© Threaten")
+
     .setTimestamp();
 }
 

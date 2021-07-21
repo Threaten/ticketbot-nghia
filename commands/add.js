@@ -5,9 +5,8 @@ function noArgs(id) {
   return new Discord.MessageEmbed()
     .setColor("#ff4b5c")
     .setDescription(`<@${id}> You didn't specified any argument`)
-    .setFooter(
-      "© Threaten https://cdn.discordapp.com/avatars/259733877826912257/62ba0cc0c81fb92dd8f6356fa757f1bf.png?size=256"
-    )
+    .setFooter("© Threaten")
+
     .setTimestamp();
 }
 
@@ -15,9 +14,8 @@ function added(id) {
   return new Discord.MessageEmbed()
     .setColor("#bbf1c8")
     .setDescription(`<@${id}> Added to Ticket`)
-    .setFooter(
-      "© Threaten https://cdn.discordapp.com/avatars/259733877826912257/62ba0cc0c81fb92dd8f6356fa757f1bf.png?size=256"
-    )
+    .setFooter("© Threaten")
+
     .setTimestamp();
 }
 

@@ -5,9 +5,8 @@ function noAdmin(id) {
   return new Discord.MessageEmbed()
     .setColor("#ff4b5c")
     .setDescription(`<@${id}> You're not a Admin`)
-    .setFooter(
-      "© Threaten https://cdn.discordapp.com/avatars/259733877826912257/62ba0cc0c81fb92dd8f6356fa757f1bf.png?size=256"
-    )
+    .setFooter("© Threaten")
+
     .setTimestamp();
 }
 
@@ -17,9 +16,8 @@ function alreadyDone(id) {
     .setDescription(
       `<@${id}> This server has already have panel. You can't create another one`
     )
-    .setFooter(
-      "© Threaten https://cdn.discordapp.com/avatars/259733877826912257/62ba0cc0c81fb92dd8f6356fa757f1bf.png?size=256"
-    )
+    .setFooter("© Threaten")
+
     .setTimestamp();
 }
 
@@ -31,9 +29,8 @@ function panelMenu() {
     .addField("Hỗ trợ", "❓\n", true)
     .addField("\u200B", "\u200B", true)
     .addField("Whitelist", "🛂\n", true)
-    .setFooter(
-      "© Threaten https://cdn.discordapp.com/avatars/259733877826912257/62ba0cc0c81fb92dd8f6356fa757f1bf.png?size=256"
-    )
+    .setFooter("© Threaten")
+
     .setTimestamp();
 }
 

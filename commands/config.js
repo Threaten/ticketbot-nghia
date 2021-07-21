@@ -6,9 +6,8 @@ function noAdmin(id) {
   return new Discord.MessageEmbed()
     .setColor("#ff4b5c")
     .setDescription(`<@${id}> You're not a Admin`)
-    .setFooter(
-      "© Threaten https://cdn.discordapp.com/avatars/259733877826912257/62ba0cc0c81fb92dd8f6356fa757f1bf.png?size=256"
-    )
+    .setFooter("© Threaten")
+
     .setTimestamp();
 }
 
@@ -33,9 +32,8 @@ function config_menu(data) {
           : `None`
       }`
     )
-    .setFooter(
-      "© Threaten https://cdn.discordapp.com/avatars/259733877826912257/62ba0cc0c81fb92dd8f6356fa757f1bf.png?size=256"
-    )
+    .setFooter("© Threaten")
+
     .setTimestamp();
 }
 
@@ -43,9 +41,8 @@ function updated() {
   return new Discord.MessageEmbed()
     .setColor("#bbf1c8")
     .setDescription("Data updated ✅")
-    .setFooter(
-      "© Threaten https://cdn.discordapp.com/avatars/259733877826912257/62ba0cc0c81fb92dd8f6356fa757f1bf.png?size=256"
-    )
+    .setFooter("© Threaten")
+
     .setTimestamp();
 }
 
@@ -53,9 +50,8 @@ function missing() {
   return new Discord.MessageEmbed()
     .setColor("#ff4b5c")
     .setDescription("Argument missing")
-    .setFooter(
-      "© Threaten https://cdn.discordapp.com/avatars/259733877826912257/62ba0cc0c81fb92dd8f6356fa757f1bf.png?size=256"
-    )
+    .setFooter("© Threaten")
+
     .setTimestamp();
 }
 
