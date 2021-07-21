@@ -5,7 +5,7 @@ const { paypal_email } = require("../config.json");
 function ticketMessage(id) {
   return new Discord.MessageEmbed()
     .setColor("#bbf1c8")
-    .setTitle("**WHitelist Ticket**")
+    .setTitle("**Whitelist Ticket**")
     .setDescription(`Hello <@${id}> ,\n\ntest`)
     .setTimestamp();
 }
