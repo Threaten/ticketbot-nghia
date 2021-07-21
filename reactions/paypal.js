@@ -23,7 +23,11 @@ function ticketMessage(id) {
       "nêu tên ingame",
       false
     )
-    .addField("Cam kết khi được duyệt", "...", false)
+    .addField(
+      "Cam kết khi được duyệt",
+      "Cam kết bạn đã đọc kĩ và chơi theo luật server",
+      false
+    )
     .addField(
       "Ngoài ra có gì tốt hơn để duyệt bạn ",
       "như link fb, giấy khen, ....",
