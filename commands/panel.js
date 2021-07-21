@@ -30,11 +30,11 @@ function panelMenu() {
 
 module.exports = {
   name: "panel",
-  description: "Redeem the Order",
+  description: "Redeem ticket messsage",
   cooldown: 3,
   guildOnly: true,
   async execute(message, args) {
-    message.delete();
+    message.delete({ timeout: 1000 });
     if (message.member.hasPermission("ADMINISTRATOR")) {
       mongo.validateGuild(message.guild.id, (result) => {
         if (result) {
