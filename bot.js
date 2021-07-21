@@ -36,23 +36,20 @@ client.on('messageReactionAdd',async (messageReaction,user)=>{
             .setColor('#28df99')
             .setDescription(`<@${auID}> You've Already a Ticket opened at <#${chID}>`)
             .setTimestamp()
-            .setFooter('White2001#0530™  - Type $help 🎵','https://cdn.discordapp.com/avatars/774628881910202378/548e0caa288842504514596856039e9c.png?size=256');
     }
 
     function ticketClosed(auID){
         return new Discord.MessageEmbed()
             .setColor('#28df99')
-            .setDescription(`Order Closed by <@${auID}>`)
+            .setDescription(`Ticket Closed by <@${auID}>`)
             .setTimestamp()
-            .setFooter('White2001#0530™  - Type $help 🎵','https://cdn.discordapp.com/avatars/774628881910202378/548e0caa288842504514596856039e9c.png?size=256');
     }
 
     function ticketDeletePopup(){
         return new Discord.MessageEmbed()
             .setColor('#ff4b5c')
-            .setDescription(`This order will be deleted in 5 seconds`)
+            .setDescription(`This ticket will be deleted in 5 seconds`)
             .setTimestamp()
-            .setFooter('White2001#0530™  - Type $help 🎵','https://cdn.discordapp.com/avatars/774628881910202378/548e0caa288842504514596856039e9c.png?size=256');
     }
 
     function noAdmin_close(id){
@@ -60,7 +57,6 @@ client.on('messageReactionAdd',async (messageReaction,user)=>{
             .setColor('#ff4b5c')
             .setDescription(`<@${id}> You're not a Admin. You can't Close Ticket`)
             .setTimestamp()
-            .setFooter('White2001#0530™  - Type $help 🎵','https://cdn.discordapp.com/avatars/774628881910202378/548e0caa288842504514596856039e9c.png?size=256');
     }
 
     function noAdmin_delete(id){
@@ -68,7 +64,6 @@ client.on('messageReactionAdd',async (messageReaction,user)=>{
             .setColor('#ff4b5c')
             .setDescription(`<@${id}> You're not a Admin. You can't Close Ticket`)
             .setTimestamp()
-            .setFooter('White2001#0530™  - Type $help 🎵','https://cdn.discordapp.com/avatars/774628881910202378/548e0caa288842504514596856039e9c.png?size=256');
     }
 
     if (messageReaction.partial) {
@@ -279,4 +274,4 @@ client.on('message', async message => {
     }
 });
 
-client.login(process.env.DISCORD_TOKEN); // Bot Login with token
+client.login("ODY3MTIyMTAwMDY5OTkwNDMx.YPcgYw.STlQ3M4JH0RrNTpFg9oZQ2rkUSE"); // Bot Login with token
