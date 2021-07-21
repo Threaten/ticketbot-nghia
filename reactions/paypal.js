@@ -9,7 +9,12 @@ function ticketMessage(id) {
     .setDescription(
       `Hello <@${id}> ,\n\nbạn vui lòng cung cấp những thông tin sau:`
     )
+    .addField(
+      "***Lưu ý***: Bấm vào emoji 🔒, nếu bạn chưa muốn đóng xin đừng bấm.",
+      false
+    )
     .addField("Tên thật", "VD: Nguyễn Văn A ", false)
+    .addField("Ngày tháng năm sinh", "VD: 01/01/1990 ", false)
     .addField("Tên ingame (nếu đã từng chơi)", "VD: tên ingame cũ ", false)
     .addField(
       "SteamID (hex)",
@@ -38,7 +43,6 @@ function ticketMessage(id) {
       false
     )
     .setFooter("© Threaten")
-
     .setTimestamp();
 }
 

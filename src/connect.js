@@ -251,7 +251,6 @@ const validateTicket_Author = (auID, callback) => {
     if (err) {
       console.log(err);
     } else {
-      console.log(result);
       return await callback(result);
     }
   });
