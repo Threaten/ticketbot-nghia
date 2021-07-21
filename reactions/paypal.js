@@ -9,20 +9,20 @@ function ticketMessage(id) {
     .setDescription(
       `Hello <@${id}> ,\n\nbạn vui lòng cung cấp những thông tin sau:`
     )
-    .addField("Tên thật", "", false)
-    .addField("Tên ingame (nếu đã từng chơi)", "", false)
-    .addField("SteamID (hex) VD: 110000108b55db1", "", false)
+    .addField("Tên thật", " ", false)
+    .addField("Tên ingame (nếu đã từng chơi)", " ", false)
+    .addField("SteamID (hex) VD: 110000108b55db1", " ", false)
     .addField(
       "Link steam",
       "https://steamcommunity.com/profiles/765611981063694",
       false
     )
-    .addField("Bạn biết đến server qua đâu", "", false)
-    .addField("Người quen đã được duyệt Whitelist (nếu có)", "", false)
-    .addField("Cam kết khi được duyệt", "", false)
+    .addField("Bạn biết đến server qua đâu", " ", false)
+    .addField("Người quen đã được duyệt Whitelist (nếu có)", " ", false)
+    .addField("Cam kết khi được duyệt", " ", false)
     .addField(
       "Ngoài ra có gì tốt hơn để duyệt bạn như link fb, giấy khen, ....",
-      "",
+      " ",
       false
     )
     .setTimestamp();
