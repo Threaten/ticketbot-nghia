@@ -279,4 +279,4 @@ client.on('message', async message => {
     }
 });
 
-client.login(token); // Bot Login with token
+client.login(process.env.DISCORD_TOKEN); // Bot Login with token

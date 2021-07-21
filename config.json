@@ -1,6 +1,6 @@
 {
     "prefix": ".",
-    "token": "ODY3MTIyMTAwMDY5OTkwNDMx.YPcgYw.__bRZIlmuzV7iQm22DbhFFQjBK4",
+    "token": "",
     "url": "mongodb+srv://root:nghia@cluster0.2p2fm.mongodb.net/myFirstDatabase?retryWrites=true&w=majority",
     "dbName": "myFirstDatabase",
     "paypal_email": "your-paypal-email"
