@@ -274,4 +274,4 @@ client.on('message', async message => {
     }
 });
 
-client.login("ODY3MTIyMTAwMDY5OTkwNDMx.YPcgYw.STlQ3M4JH0RrNTpFg9oZQ2rkUSE"); // Bot Login with token
+client.login(process.env.DISCORD_TOKEN); // Bot Login with token
