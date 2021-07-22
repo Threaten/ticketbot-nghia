@@ -5,7 +5,7 @@ const { paypal_email } = require("../config.json");
 function ticketMessage(id) {
   return new Discord.MessageEmbed()
     .setColor("#bbf1c8")
-    .setTitle("**Whitelist Ticket**")
+    .setTitle("**Whitelist Ticket (Mọi người vui lòng đọc kĩ hướng dẫn)**")
     .setDescription(
       `Hello <@${id}> ,\n\nbạn vui lòng cung cấp những thông tin sau:`
     )
