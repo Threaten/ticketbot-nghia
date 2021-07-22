@@ -51,7 +51,7 @@ function general_ticket(message, user) {
         await message.guild.channels
           .create(`support-${user.username}`, {
             type: "text",
-            parent: "863661967091826699",
+            parent: "867781783827644456",
             permissionOverwrites: [
               {
                 id: message.guild.id,
