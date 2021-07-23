@@ -9,7 +9,8 @@ function ticketMessage(id) {
       `Chào <@${id}> ,\nbạn vui lòng đặt câu hỏi tại đây. Sẽ có người hỗ trợ bạn trong thời gian sớm nhất`
     )
     .addField(
-      "***Lưu ý***: Bấm vào emoji 🔒 để đóng ticket, nếu bạn chưa muốn đóng xin đừng bấm.",
+      "***Lưu ý***:",
+      "Bấm vào emoji 🔒 để đóng ticket, nếu bạn chưa muốn đóng xin đừng bấm.",
       false
     )
     .setFooter("© Threaten")

@@ -10,7 +10,8 @@ function ticketMessage(id) {
       `Hello <@${id}> ,\n\nbạn vui lòng cung cấp những thông tin sau:`
     )
     .addField(
-      "***Lưu ý***: Bấm vào emoji 🔒 để đóng ticket, nếu bạn chưa muốn đóng xin đừng bấm.",
+      "***Lưu ý***:",
+      "Bấm vào emoji 🔒 để đóng ticket, nếu bạn chưa muốn đóng xin đừng bấm.",
       false
     )
     .addField("1. Tên thật", "VD: Nguyễn Văn A ", false)
