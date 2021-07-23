@@ -18,7 +18,7 @@ function ticketMessage(id) {
     .addField("3. Tên ingame (nếu đã từng chơi)", "VD: tên ingame cũ ", false)
     .addField(
       "SteamID (hex)",
-      `Hướng dẫn lấy steam id 64:\n- Vào steam -> bấm vào tên chọn hồ sơ - > sửa hồ sơ -> ở dòng Hồ sơ của bạn có thể được tìm thấy tại : là link steam của mình ( ví dụ https://steamcommunity.com/id/ender1102/ )\n- copy link đó vào http://vacbanned.com/engine/check\n- Ở Steam3 ID (64bit) có mã  (Hex)  (ví dụ 110000115ea20b8 (Hex)) điền vào câu trả lời Steam ID 64`,
+      `Hướng dẫn lấy steam id 64:\n- Vào steam -> bấm vào tên chọn hồ sơ - > sửa hồ sơ -> ở dòng Hồ sơ của bạn có thể được tìm thấy tại : là link steam của mình ( ví dụ: https://steamcommunity.com/profiles/765611913063694 )\n- copy link đó vào http://vacbanned.com/engine/check\n- Ở Steam3 ID (64bit) có mã  (Hex)  (ví dụ 110010115ea20b3 (Hex)) điền vào câu trả lời Steam ID 64`,
       false
     )
     .addField(
