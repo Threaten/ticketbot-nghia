@@ -30,7 +30,9 @@ function panelMenu() {
     .addField("\u200B", "\u200B", true)
     .addField("Whitelist", "🛂\n", true)
     .addField(
-      "Có lỗi trong việc tạo ticket (tạo bị lỗi, không tạo được), xin liên hệ trực tiếp với <@259733877826912257>"
+      "Có lỗi trong việc tạo ticket (tạo bị lỗi, không tạo được)",
+      "Liên hệ trực tiếp với <@259733877826912257>",
+      false
     )
     .setFooter("© Threaten")
 
