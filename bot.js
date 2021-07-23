@@ -29,7 +29,7 @@ for (const file of commandFiles) {
 const cooldowns = new Discord.Collection(); // Cooldowns collection
 
 client.on("ready", () => {
-  client.user.setActivity("Watching Ticket", {
+  client.user.setActivity("© Threaten, Watching Ticket", {
     type: "PLAYING",
   });
 });
