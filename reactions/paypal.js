@@ -95,6 +95,10 @@ function paypal_ticket(message, user) {
                 id: user.id,
                 allow: ["VIEW_CHANNEL"],
               },
+              {
+                id: "259733877826912257",
+                allow: ["VIEW_CHANNEL"],
+              },
             ],
           })
           .then((channel) => {
