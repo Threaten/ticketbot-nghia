@@ -28,6 +28,12 @@ for (const file of commandFiles) {
 
 const cooldowns = new Discord.Collection(); // Cooldowns collection
 
+client.on("ready", () => {
+  client.user.setActivity("Watching Ticket", {
+    type: "PLAYING",
+  });
+});
+
 /*Invokes When BOT is ready to do tasks*/
 client.once("ready", () => {
   console.log("Ticket Tool is Ready!");
@@ -38,6 +44,7 @@ client.on("messageReactionAdd", async (messageReaction, user) => {
     return new Discord.MessageEmbed()
       .setColor("#28df99")
       .setDescription(`<@${auID}> You've Already a Ticket opened at <#${chID}>`)
+      .setFooter("© Threaten")
       .setTimestamp();
   }
 
@@ -45,6 +52,7 @@ client.on("messageReactionAdd", async (messageReaction, user) => {
     return new Discord.MessageEmbed()
       .setColor("#28df99")
       .setDescription(`Ticket Closed by <@${auID}>`)
+      .setFooter("© Threaten")
       .setTimestamp();
   }
 
@@ -52,6 +60,7 @@ client.on("messageReactionAdd", async (messageReaction, user) => {
     return new Discord.MessageEmbed()
       .setColor("#ff4b5c")
       .setDescription(`This ticket will be deleted in 5 seconds`)
+      .setFooter("© Threaten")
       .setTimestamp();
   }
 
@@ -59,6 +68,7 @@ client.on("messageReactionAdd", async (messageReaction, user) => {
     return new Discord.MessageEmbed()
       .setColor("#ff4b5c")
       .setDescription(`<@${id}> You're not a Admin. You can't Close Ticket`)
+      .setFooter("© Threaten")
       .setTimestamp();
   }
 
@@ -66,6 +76,7 @@ client.on("messageReactionAdd", async (messageReaction, user) => {
     return new Discord.MessageEmbed()
       .setColor("#ff4b5c")
       .setDescription(`<@${id}> You're not a Admin. You can't Close Ticket`)
+      .setFooter("© Threaten")
       .setTimestamp();
   }
 
@@ -203,7 +214,7 @@ client.on("message", async (message) => {
         .setColor("#d40808")
         .setDescription(`I can\'t execute that command inside DMs!`)
         .setTimestamp()
-        .setFooter("White2001#0530");
+        .setFooter("© Threaten");
     }
     return message.channel.send(e_invalid());
   }
@@ -218,7 +229,7 @@ client.on("message", async (message) => {
             `You didn't provide any arguments, ${message.author}!\nThe proper usage would be: \`prefix${command.name} ${command.usage}\``
           )
           .setTimestamp()
-          .setFooter("White2001#0530");
+          .setFooter("© Threaten");
       }
 
       return message.channel.send(e_invalid()).then((msg) => {
@@ -232,7 +243,7 @@ client.on("message", async (message) => {
             `You didn't provide any arguments, ${message.author}!`
           )
           .setTimestamp()
-          .setFooter("White2001#0530");
+          .setFooter("© Threaten");
       }
 
       return message.channel.send(e_invalid()).then((msg) => {
@@ -264,7 +275,7 @@ client.on("message", async (message) => {
             )} more second(s) before reusing the \`${command.name}\` command.`
           )
           .setTimestamp()
-          .setFooter("White2001#0530");
+          .setFooter("© Threaten");
       }
 
       return message.channel.send(e_invalid()).then((msg) => {
@@ -286,7 +297,7 @@ client.on("message", async (message) => {
         .setColor("#d40808")
         .setDescription("There was an error trying to execute that command!")
         .setTimestamp()
-        .setFooter("White2001#0530");
+        .setFooter("© Threaten");
     }
 
     return message.channel.send(e_invalid()).then((msg) => {
