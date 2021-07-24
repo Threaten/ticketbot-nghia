@@ -256,6 +256,19 @@ const validateTicket_Author = (auID, callback) => {
   });
 };
 
+const checkTicket = (chID, callback) => {
+  const db = connection.db(dbName);
+  const collection = db.collection("tickets");
+
+  collection.findOne({ channelID: chID }, async function (err, result) {
+    if (err) {
+      console.log(err);
+    } else {
+      return await callback(result);
+    }
+  });
+};
+
 const validateTicketPanel_Guild = (guID, callback) => {
   const db = connection.db(dbName);
   const collection = db.collection("tickets-panel");
@@ -540,4 +553,5 @@ module.exports = {
   newBlacklist,
   blacklist,
   deleteBlacklist,
+  checkTicket,
 };

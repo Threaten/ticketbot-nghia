@@ -22,7 +22,7 @@ function Wrong(auID) {
 
 function ticket_close(message, user, result) {
   try {
-    mongo.ticketUpdateStatus_Close(message.channel.id, (res) => {
+    mongo.ticketUpdateStatus_Close(message.channel.id, async (res) => {
       if (res) {
         message.channel
           .updateOverwrite(
@@ -30,7 +30,7 @@ function ticket_close(message, user, result) {
             { VIEW_CHANNEL: false },
             "Ticket Closed"
           )
-          .then((m) => {
+          .then(async (m) => {
             if (result.add) {
               for (let member of result.add) {
                 message.channel.updateOverwrite(member, {
@@ -38,52 +38,54 @@ function ticket_close(message, user, result) {
                 });
               }
             }
-            message.channel.send(ticketMessage(user.id)).then(async (msg) => {
-              await msg.react("🔓");
-              await msg.react("🗒️");
-              await msg.react("⛔").then((m) => {
-                mongo.validateTicketPanel_Channel(
-                  message.channel.id,
-                  (res1) => {
-                    if (res1) {
-                      mongo.ticketPanelUpdateStatus_Close(
-                        message.channel.id,
-                        msg.id,
-                        (res2) => {
-                          if (res2) {
-                            return console.log(
-                              "Ticket Close Panel Updated and Ticket Closed"
-                            );
+            await message.channel
+              .send(ticketMessage(user.id))
+              .then(async (msg) => {
+                await msg.react("🔓");
+                await msg.react("🗒️");
+                await msg.react("⛔").then((m) => {
+                  mongo.validateTicketPanel_Channel(
+                    message.channel.id,
+                    (res1) => {
+                      if (res1) {
+                        mongo.ticketPanelUpdateStatus_Close(
+                          message.channel.id,
+                          msg.id,
+                          (res2) => {
+                            if (res2) {
+                              return console.log(
+                                "Ticket Close Panel Updated and Ticket Closed"
+                              );
+                            }
                           }
-                        }
-                      );
-                    } else {
-                      mongo.newTicketPanel(
-                        message.guild.id,
-                        user.id,
-                        message.channel.id,
-                        msg.id,
-                        (r) => {
-                          if (r) {
-                            mongo.ticketPanelUpdateStatus_Close(
-                              message.channel.id,
-                              msg.id,
-                              (r1) => {
-                                if (r1) {
-                                  return console.log(
-                                    "Ticket Closed Successfully"
-                                  );
+                        );
+                      } else {
+                        mongo.newTicketPanel(
+                          message.guild.id,
+                          user.id,
+                          message.channel.id,
+                          msg.id,
+                          (r) => {
+                            if (r) {
+                              mongo.ticketPanelUpdateStatus_Close(
+                                message.channel.id,
+                                msg.id,
+                                (r1) => {
+                                  if (r1) {
+                                    return console.log(
+                                      "Ticket Closed Successfully"
+                                    );
+                                  }
                                 }
-                              }
-                            );
+                              );
+                            }
                           }
-                        }
-                      );
+                        );
+                      }
                     }
-                  }
-                );
+                  );
+                });
               });
-            });
           });
       }
     });

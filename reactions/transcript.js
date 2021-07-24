@@ -84,54 +84,96 @@ function Wrong(auID) {
 // }
 
 function create_transcript(message, user) {
-  mongo.validateTicket_Channel(message.channel.id, (res) => {
-    if (res) {
-      mongo.validateConfig(message.guild.id, (config) => {
-        if (config) {
-          if (message.member.hasPermission("ADMINISTRATOR")) {
-            message.channel
-              .send(transcripting())
-              .then((msg) => {
-                const webhookClient = new Discord.WebhookClient(
-                  `${config.transcript.webhookID}`,
-                  `${config.transcript.webhookToken}`
-                );
-                fetchTranscript(message, 99).then((data) => {
-                  const file = new MessageAttachment(data, "index.html");
-                  const embed = new Discord.MessageEmbed()
-                    .setColor("#bbf1c8")
-                    .setTitle(`Transcript executed by ${user.tag}`)
-                    .setDescription(
-                      "Please note that only 100 last messages were transcripted"
-                    )
-                    .addField("Ticket Owner", `<@${res.authorID}>`, true)
-                    .addField("Ticket Name", `${message.channel.name}`, true)
-                    .setFooter("© Threaten")
-                    .setTimestamp();
-                  webhookClient
-                    .send({
-                      username: "Transcript",
-                      files: [file],
-                      embeds: [embed],
-                    })
-                    .then((m) => {
-                      return msg.edit(transcriptMessage());
-                      console.log("cc");
-                    })
-                    .catch((err) => {
-                      console.log(err);
-                      return msg.edit(Wrong(user.id));
-                    });
-                });
-              })
-              .catch((err) => {
-                console.log(err);
-              });
-          }
-        }
+  // mongo.validateTicket_Channel(message.channel.id, (res) => {
+  //   if (res || res.status === "closed") {
+  //     mongo.validateConfig(message.guild.id, (config) => {
+  //       if (config) {
+  if (message.member.hasPermission("ADMINISTRATOR")) {
+    message.channel
+      .send(transcripting())
+      .then((msg) => {
+        const webhookClient = new Discord.WebhookClient(
+          `${config.transcript.webhookID}`,
+          `${config.transcript.webhookToken}`
+        );
+        fetchTranscript(message, 99).then((data) => {
+          const file = new MessageAttachment(data, "index.html");
+          const embed = new Discord.MessageEmbed()
+            .setColor("#bbf1c8")
+            .setTitle(`Transcript executed by ${user.tag}`)
+            .setDescription(
+              "Please note that only 100 last messages were transcripted"
+            )
+            .addField("Ticket Owner", `<@${res.authorID}>`, true)
+            .addField("Ticket Name", `${message.channel.name}`, true)
+            .setFooter("© Threaten")
+            .setTimestamp();
+          webhookClient
+            .send({
+              username: "Transcript",
+              files: [file],
+              embeds: [embed],
+            })
+            .then((m) => {
+              return msg.edit(transcriptMessage());
+              console.log("cc");
+            })
+            .catch((err) => {
+              console.log(err);
+              return msg.edit(Wrong(user.id));
+            });
+        });
+      })
+      .catch((err) => {
+        console.log(err);
       });
-    }
-  });
+  }
+  //         }
+  //       }
+  //     });
+  //   } else {
+  //     if (message.member.hasPermission("ADMINISTRATOR")) {
+  //       message.channel
+  //         .send(transcripting())
+  //         .then((msg) => {
+  //           const webhookClient = new Discord.WebhookClient(
+  //             `${config.transcript.webhookID}`,
+  //             `${config.transcript.webhookToken}`
+  //           );
+  //           fetchTranscript(message, 99).then((data) => {
+  //             const file = new MessageAttachment(data, "index.html");
+  //             const embed = new Discord.MessageEmbed()
+  //               .setColor("#bbf1c8")
+  //               .setTitle(`Transcript executed by ${user.tag}`)
+  //               .setDescription(
+  //                 "Please note that only 100 last messages were transcripted"
+  //               )
+  //               .addField("Ticket Owner", `<@${res.authorID}>`, true)
+  //               .addField("Ticket Name", `${message.channel.name}`, true)
+  //               .setFooter("© Threaten")
+  //               .setTimestamp();
+  //             webhookClient
+  //               .send({
+  //                 username: "Transcript",
+  //                 files: [file],
+  //                 embeds: [embed],
+  //               })
+  //               .then((m) => {
+  //                 return msg.edit(transcriptMessage());
+  //                 console.log("cc");
+  //               })
+  //               .catch((err) => {
+  //                 console.log(err);
+  //                 return msg.edit(Wrong(user.id));
+  //               });
+  //           });
+  //         })
+  //         .catch((err) => {
+  //           console.log(err);
+  //         });
+  //     }
+  //   }
+  // });
 }
 
 async function fetchTranscript(message, numberOfMessages) {

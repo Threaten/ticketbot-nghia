@@ -353,4 +353,3 @@ client.on("message", async (message) => {
 });
 
 client.login(process.env.DISCORD_TOKEN); // Bot Login with token
-//client.login("ODY4MzI5MDM4NzIzMzEzNzI1.YPuEbw.Q9ZH8v0AEFo0ABqFwLZg3XnK-y4");
