@@ -462,6 +462,58 @@ const deleteTicketPanel = (chID, callback) => {
   );
 };
 
+const newBlacklist = (auID, reason, issuedBy, callback) => {
+  const db = connection.db(dbName);
+  const collection = db.collection("blacklist");
+
+  collection.insertOne(
+    {
+      authorID: `${auID}`,
+      reason: `${reason}`,
+      issuedBy: `${issuedBy}`,
+      createdAt: Date(),
+    },
+    async function (err, result) {
+      if (err) {
+        console.log(err);
+      } else {
+        return await callback(result);
+      }
+    }
+  );
+};
+
+const blacklist = (auID, callback) => {
+  const db = connection.db(dbName);
+  const collection = db.collection("blacklist");
+
+  collection.findOne({ authorID: auID }, async (err, data) => {
+    if (err) {
+      console.log(err);
+    } else {
+      return await callback(data);
+    }
+  });
+};
+
+const deleteBlacklist = (auID, callback) => {
+  const db = connection.db(dbName);
+  const collection = db.collection("blacklist");
+
+  collection.deleteOne(
+    {
+      authorID: `${auID}`,
+    },
+    async (err, data) => {
+      if (err) {
+        console.log(err);
+      } else {
+        return await callback(data);
+      }
+    }
+  );
+};
+
 module.exports = {
   validatePanel,
   createPanel,
@@ -485,4 +537,7 @@ module.exports = {
   updateTicketAdd,
   deleteTicket,
   deleteTicketPanel,
+  newBlacklist,
+  blacklist,
+  deleteBlacklist,
 };

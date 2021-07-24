@@ -10,6 +10,7 @@ const close = require("./reactions/close");
 const reopen = require("./reactions/reopen");
 const transcript = require("./reactions/transcript");
 const ticket = require("./reactions/delete");
+const blacklist = require("./commands/blacklist");
 
 const client = new Discord.Client({
   partials: ["MESSAGE", "CHANNEL", "REACTION", "USER", "GUILD_MEMBER"],
@@ -64,11 +65,37 @@ client.on("messageReactionAdd", async (messageReaction, user) => {
       .setTimestamp();
   }
 
+  function convert(str) {
+    var date = new Date(str),
+      month = ("0" + (date.getMonth() + 1)).slice(-2),
+      day = ("0" + date.getDate()).slice(-2);
+    hour = date.getHours();
+    minute = date.getMinutes();
+    var result = `${[day, month, date.getFullYear()].join(
+      "/"
+    )} ${hour}:${minute}`;
+    return result;
+  }
+
   function noAdmin_close(id) {
     return new Discord.MessageEmbed()
       .setColor("#ff4b5c")
       .setDescription(`<@${id}> You're not a Admin. You can't Close Ticket`)
       .setFooter("© Threaten")
+      .setTimestamp();
+  }
+
+  function BanTicket(auID, reason, issuedBy, time) {
+    return new Discord.MessageEmbed()
+      .setColor("#28df99")
+      .setDescription(
+        `<@${auID}> You've been blacklisted from creating ticket.`
+      )
+      .addField("Reason", reason, false)
+      .addField("Issued By:", `<@${issuedBy}>`, false)
+      .addField("Blacklisted at:", convert(time), false)
+      .setFooter("© Threaten")
+
       .setTimestamp();
   }
 
@@ -94,8 +121,17 @@ client.on("messageReactionAdd", async (messageReaction, user) => {
   if (messageReaction.emoji.name === "❓" && !user.bot) {
     mongo.validatePanel(messageReaction.message.id, async (res) => {
       if (res) {
-        await messageReaction.users.remove(user.id);
-        general.general_ticket(messageReaction.message, user);
+        mongo.blacklist(user.id, async (cb) => {
+          if (cb) {
+            await messageReaction.users.remove(user.id);
+            return user.send(
+              BanTicket(user.id, cb.reason, cb.issuedBy, cb.createdAt)
+            );
+          } else {
+            await messageReaction.users.remove(user.id);
+            general.general_ticket(messageReaction.message, user);
+          }
+        });
       }
     });
   }
@@ -103,8 +139,18 @@ client.on("messageReactionAdd", async (messageReaction, user) => {
   if (messageReaction.emoji.name === "🛂" && !user.bot) {
     mongo.validatePanel(messageReaction.message.id, async (res) => {
       if (res) {
-        await messageReaction.users.remove(user.id);
-        paypal.paypal_ticket(messageReaction.message, user);
+        mongo.blacklist(user.id, async (cb) => {
+          if (cb) {
+            await messageReaction.users.remove(user.id);
+            return user.send(
+              BanTicket(user.id, cb.reason, cb.issuedBy, cb.createdAt)
+            );
+          } else {
+            await messageReaction.users.remove(user.id);
+
+            paypal.paypal_ticket(messageReaction.message, user);
+          }
+        });
       }
     });
   }
@@ -307,3 +353,4 @@ client.on("message", async (message) => {
 });
 
 client.login(process.env.DISCORD_TOKEN); // Bot Login with token
+//client.login("ODY4MzI5MDM4NzIzMzEzNzI1.YPuEbw.Q9ZH8v0AEFo0ABqFwLZg3XnK-y4");
