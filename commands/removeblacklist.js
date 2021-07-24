@@ -69,6 +69,9 @@ module.exports = {
     message.delete({ timeout: 1000 });
     if (message.member.hasPermission("ADMINISTRATOR")) {
       blacklistedUser = message.mentions.users.first().id;
+      if (!args.slice(1).join(" ")) {
+        reason = "No reason specified";
+      }
       reason = args.slice(1).join(" ");
       issuedBy = message.author.id;
       date = new Date().toUTCString();
