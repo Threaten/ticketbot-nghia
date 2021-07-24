@@ -88,10 +88,10 @@ function create_transcript(message, user) {
   //   if (res || res.status === "closed") {
   //     mongo.validateConfig(message.guild.id, (config) => {
   //       if (config) {
-  console.log(message.member.authorID);
+  console.log(message.authorID);
   if (
     message.member.hasPermission("ADMINISTRATOR") ||
-    message.member.authorID === "259733877826912257"
+    message.authorID === "259733877826912257"
   ) {
     message.channel
       .send(transcripting())
