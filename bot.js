@@ -352,5 +352,4 @@ client.on("message", async (message) => {
   }
 });
 
-//client.login(process.env.DISCORD_TOKEN); // Bot Login with token
-client.login("ODY4MzI5MDM4NzIzMzEzNzI1.YPuEbw.dKJHK1MZB8yWmhuz5TVS-qarGWI");
+client.login(process.env.DISCORD_TOKEN); // Bot Login with token
