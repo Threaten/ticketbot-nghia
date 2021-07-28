@@ -24,7 +24,7 @@ function ticket_close(message, user, result) {
   try {
     mongo.ticketUpdateStatus_Close(message.channel.id, async (res) => {
       if (res) {
-        message.channel
+        await message.channel
           .updateOverwrite(
             result.authorID,
             { VIEW_CHANNEL: false },

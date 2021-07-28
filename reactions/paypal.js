@@ -85,7 +85,7 @@ function paypal_ticket(message, user) {
         await message.guild.channels
           .create(`whitelist-${user.username}`, {
             type: "text",
-            parent: "863661967091826699",
+            parent: "869835646414520360",
 
             permissionOverwrites: [
               {

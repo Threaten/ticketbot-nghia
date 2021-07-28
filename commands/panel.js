@@ -23,14 +23,13 @@ function alreadyDone(id) {
 
 function panelMenu() {
   return new Discord.MessageEmbed()
-    .setColor("#bbf1c8")
-    .setTitle("Hỗ trợ")
-    .setDescription("React emoji để nhận hỗ trợ")
-    .addField("Hỗ trợ", "❓\n", true)
-    .addField("\u200B", "\u200B", true)
-    .addField("Whitelist", "🛂\n", true)
+    .setColor(`a6a6ed`)
+    .setTitle("Tạo hỗ trợ/whitelist")
+    .setDescription(
+      "Bấm vào emoji ❓ bên dưới để nhận hỗ trợ.\nBấm vào emoji 🛂 bên dưới để nộp đơn whitelist."
+    )
     .addField(
-      "Có lỗi trong việc tạo ticket (tạo bị lỗi, không tạo được)",
+      "Có lỗi trong việc tạo ticket (tạo bị lỗi, không tạo được).",
       "Liên hệ trực tiếp với <@259733877826912257>",
       false
     )

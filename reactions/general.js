@@ -52,7 +52,7 @@ function general_ticket(message, user) {
         await message.guild.channels
           .create(`support-${user.username}`, {
             type: "text",
-            parent: "863661967091826699",
+            //parent: "863661967091826699",
             permissionOverwrites: [
               {
                 id: message.guild.id,
@@ -62,14 +62,14 @@ function general_ticket(message, user) {
                 id: user.id,
                 allow: ["VIEW_CHANNEL"],
               },
-              {
-                id: "849109991260553226",
-                allow: ["VIEW_CHANNEL"],
-              },
-              {
-                id: "259733877826912257",
-                allow: ["VIEW_CHANNEL"],
-              },
+              // {
+              //   id: "849109991260553226",
+              //   allow: ["VIEW_CHANNEL"],
+              // },
+              // {
+              //   id: "259733877826912257",
+              //   allow: ["VIEW_CHANNEL"],
+              // },
             ],
           })
           .then((channel) => {
