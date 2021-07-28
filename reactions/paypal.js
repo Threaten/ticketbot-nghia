@@ -4,7 +4,7 @@ const { paypal_email } = require("../config.json");
 
 function ticketMessage(id) {
   return new Discord.MessageEmbed()
-    .setColor("#bbf1c8")
+    .setColor("#a6a6ed")
     .setTitle("**Whitelist Ticket (Mọi người vui lòng đọc kĩ hướng dẫn)**")
     .setDescription(
       `Hello <@${id}> ,\n\nbạn vui lòng cung cấp những thông tin sau:`
@@ -53,8 +53,8 @@ function ticketMessage(id) {
 
 function SpamTicket(auID, chID) {
   return new Discord.MessageEmbed()
-    .setColor("#28df99")
-    .setDescription(`<@${auID}> You've Already a Ticket opened at <#${chID}>`)
+    .setColor("#a6a6ed")
+    .setDescription(`<@${auID}> Bạn đã tạo ticket với tên <#${chID}>`)
     .setFooter("© Threaten")
 
     .setTimestamp();

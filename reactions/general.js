@@ -3,7 +3,7 @@ const mongo = require("../src/connect");
 
 function ticketMessage(id) {
   return new Discord.MessageEmbed()
-    .setColor("#bbf1c8")
+    .setColor("#a6a6ed")
     .setTitle("**Ticket**")
     .setDescription(
       `Chào <@${id}> ,\nbạn vui lòng đặt câu hỏi tại đây. Sẽ có người hỗ trợ bạn trong thời gian sớm nhất`
@@ -20,8 +20,8 @@ function ticketMessage(id) {
 
 function SpamTicket(auID, chID) {
   return new Discord.MessageEmbed()
-    .setColor("#28df99")
-    .setDescription(`<@${auID}> Bạn đã có ticket <#${chID}>`)
+    .setColor("#a6a6ed")
+    .setDescription(`<@${auID}> Bạn đã tạo ticket với tên <#${chID}>`)
     .setFooter("© Threaten")
 
     .setTimestamp();
@@ -52,7 +52,7 @@ function general_ticket(message, user) {
         await message.guild.channels
           .create(`support-${user.username}`, {
             type: "text",
-            //parent: "863661967091826699",
+            parent: "869835967320698901",
             permissionOverwrites: [
               {
                 id: message.guild.id,
