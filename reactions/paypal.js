@@ -18,33 +18,33 @@ function ticketMessage(id) {
     .addField("2. Ngày tháng năm sinh", "VD: 01/01/1990 ", false)
     .addField("3. Tên ingame (nếu đã từng chơi)", "VD: tên ingame cũ ", false)
     .addField(
-      "SteamID (hex)",
+      "4. SteamID (hex)",
       `Hướng dẫn lấy steam id 64:\n- Vào steam -> bấm vào tên chọn hồ sơ - > sửa hồ sơ -> ở dòng Hồ sơ của bạn có thể được tìm thấy tại : là link steam của mình ( ví dụ: https://steamcommunity.com/profiles/765611913063694 )\n- copy link đó vào http://vacbanned.com/engine/check\n- Ở Steam3 ID (64bit) có mã  (Hex)  (ví dụ 110010115ea20b3 (Hex)) điền vào câu trả lời Steam ID 64`,
       false
     )
     .addField(
-      "4. Link steam",
+      "5. Link steam",
       "VD: https://steamcommunity.com/profiles/765611913063694",
       false
     )
     .addField(
-      "5. Bạn biết đến server qua đâu",
+      "6. Bạn biết đến server qua đâu",
       "VD: qua ai, qua fb nào...",
       false
     )
     .addField(
-      "6. Người quen đã được duyệt Whitelist (nếu có)",
+      "7. Người quen đã được duyệt Whitelist (nếu có)",
       "nêu tên ingame",
       false
     )
     .addField(
-      "7. Cam kết khi được duyệt",
+      "8. Cam kết khi được duyệt",
       "Cam kết bạn đã đọc kĩ và chơi theo luật server",
       false
     )
     .addField("8. Link FB ", "VD: https://facebook.com/48732844323", false)
     .addField(
-      "9. Ngoài ra có gì tốt hơn để duyệt bạn ",
+      "10. Ngoài ra có gì tốt hơn để duyệt bạn ",
       "giấy khen, các loại giấy tờ...",
       false
     )
