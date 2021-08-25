@@ -34,23 +34,23 @@ function ticketMessage(id) {
     )
     .addField(
       "7. Người quen đã được duyệt Whitelist (nếu có)",
-      "nêu tên ingame",
+      "VD: nêu tên ingame",
       false
     )
     .addField(
       "8. Cam kết khi được duyệt",
-      "Cam kết bạn đã đọc kĩ và chơi theo luật server",
+      "VD: Cam kết bạn đã đọc kĩ và chơi theo luật server",
       false
     )
     .addField("8. Link FB ", "VD: https://facebook.com/48732844323", false)
     .addField(
       "10. Ngoài ra có gì tốt hơn để duyệt bạn ",
-      "giấy khen, các loại giấy tờ...",
+      "VD: giấy khen, các loại giấy tờ...",
       false
     )
     .addField(
       "Lưu ý:",
-      `***- Bấm vào emoji 🔒 để đóng ticket, nếu bạn chưa muốn đóng xin đừng bấm.***\n***- Điền đầy đủ tất cả các thông tin ở trên.***\n***-Để được duyệt: steam trên lv0, FB không phải clone và để tất cả các bài viết ở chế độ bạn bè trong thời gian nộp đơn.***`,
+      `***- Bấm vào emoji 🔒 để đóng ticket, nếu bạn chưa muốn đóng xin đừng bấm.***\n***- Điền đầy đủ tất cả các thông tin ở trên.***\n***-Để được duyệt: steam trên lv0, FB không phải clone và để tất cả các bài viết ở chế độ công khai trong thời gian nộp đơn.***`,
       false
     )
     .setFooter("© Threaten")
