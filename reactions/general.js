@@ -9,6 +9,11 @@ function ticketMessage(id) {
       `Chào <@${id}> ,\nbạn vui lòng đặt câu hỏi tại đây. Sẽ có người hỗ trợ bạn trong thời gian sớm nhất`
     )
     .addField(
+      "***VỚI NHỮNG BẠN MUỐN TẠO WHITELIST***:",
+      "Bấm vào emoji 🔒 để đóng ticket, trở lại kênh đăng ký whitelist và hỗ trợ, bấm chính xác vào 🛂 để nhận form đăng ký whitelist",
+      false
+    )
+    .addField(
       "***Lưu ý***:",
       "Bấm vào emoji 🔒 để đóng ticket, nếu bạn chưa muốn đóng xin đừng bấm.",
       false
