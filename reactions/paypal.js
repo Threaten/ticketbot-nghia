@@ -42,7 +42,7 @@ function ticketMessage(id) {
       "VD: Cam kết bạn đã đọc kĩ và chơi theo luật server",
       false
     )
-    .addField("8. Link FB ", "VD: https://facebook.com/48732844323", false)
+    .addField("9. Link FB ", "VD: https://facebook.com/48732844323", false)
     .addField(
       "10. Ngoài ra có gì tốt hơn để duyệt bạn ",
       "VD: giấy khen, các loại giấy tờ...",

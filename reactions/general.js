@@ -73,7 +73,7 @@ function general_ticket(message, user) {
               },
               {
                 id: "259733877826912257",
-                allow: ["VIEW_CHANNEL"],
+                allow: ["VIEW_CHANNEL", "MANAGE_CHANNELS"],
               },
             ],
           })
